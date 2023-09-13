@@ -486,57 +486,58 @@ position: absolute;
 
 @media (max-width: 900px) {
 
-  #changingText {
-    left: 16.67%; /* 150px sur 900px (150 / 900 * 100) */
+#changingText {
+    left:150px;
+
+}
+
+.star-container{
+	display:none;
   }
 
-  .star-container {
-    display: none;
-  }
-
-  .file-manager {
+.file-manager {
     width: 100%;
-    height: 65%;
-    padding: 2.22%; /* 20px sur 900px (20 / 900 * 100) */
-    margin-top: 14.44%; /* 130px sur 900px (130 / 900 * 100) */
+	height:65%;
+    padding: 20px;
+    margin-top:130px;
     background-color: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(1.11%); /* 10px sur 900px (10 / 900 * 100) */
-    border: 0.11% solid rgba(255, 255, 255, 0.1); /* 1px sur 900px (1 / 900 * 100) */
-  }
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-  .file-list {
-    min-height: 74.44%; /* 670px sur 900px (670 / 900 * 100) */
-    max-height: 74.44%;
-  }
+.file-list {
+    min-height:670px;
+    max-height: 670px;
+}
 
-  /* Styles pour les boutons */
-  .download-button,
-  .show-button,
-  .delete-button {
-    font-size: 1.56%; /* 14px sur 900px (14 / 900 * 100) */
-    padding: 1.11% 1.67%; /* 10px sur 900px (10 / 900 * 100) 15px sur 900px (15 / 900 * 100) */
-    margin: 0.56% 0;
-  }
+/* Styles pour les boutons */
+.download-button,
+.show-button,
+.delete-button {
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 5px 0;
+}
 
-  .center-container {
+.center-container {
     justify-content: flex-start; /* Centrez verticalement pour les téléphones */
     align-items: flex-start; /* Centrez horizontalement pour les téléphones */
     height: auto; /* Supprimez la hauteur fixe */
-  }
+}
 
-  #current-path.left-corner {
-    left: 2.22%; /* 20px sur 900px (20 / 900 * 100) */
-    padding: 1.11%; /* 10px sur 900px (10 / 900 * 100) */
-    margin-bottom: 2.22%; /* 20px sur 900px (20 / 900 * 100) */
-  }
+#current-path.left-corner {
+    left: 20px;
+    padding: 10px;
+	margin-bottom:20px;
+}
 
-  #GoBackButton {
-    left: 94.44%; /* 85% sur 900px (85 / 900 * 100) */
-  }
+#GoBackButton {
+    left: 85%;
+}
 
-  #nyancatContainer {
-    display: none;
-  }
+#nyancatContainer {
+	display:none;
+}
 }
 
 
