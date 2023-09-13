@@ -1,0 +1,861 @@
+<!--
+         __          __         __          __        __
+        /\ \        /\ \       /\ \        /\ \      / /\
+       /  \ \      /  \ \      \_\ \      /  \ \    / /  \
+      / /\ \ \    / /\ \ \     /\__ \    / /\ \ \  / / /\ \
+     / / /\ \_\  / / /\ \_\   / /_ \ \  / / /\ \_\/ / /\ \ \
+    / / /_/ / / / /_/_ \/_/  / / /\ \ \/ / /_/ / /_/ /  \ \ \
+   / / /__\/ / / /____/\    / / /  \/_/ / /__\/ /\ \ \   \ \ \
+  / / /_____/ / /\____\/   / / /     / / /_____/  \ \ \   \ \ \
+ / / /\ \ \  / / /______  / / /     / / /\ \ \     \ \ \___\ \ \
+/ / /  \ \ \/ / /_______\/_/ /     / / /  \ \ \     \ \/____\ \ \
+\/_/    \_\/\/__________/\_\/      \/_/    \_\/      \_________\/
+retrochorizo@proton.me 
+
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Ubuntu+Condensed&display=swap');
+
+body {
+background: black;
+background-image: linear-gradient(to right, rgba(19, 38, 58, 0.5), rgba(31, 63, 97, 0.5), rgba(77, 0, 77, 0.3), rgba(230, 92, 0, 0.3));
+background-size: 200% 200%;
+    animation: nebula 20s ease infinite;
+    backdrop-filter: blur(10px); /* Ajustez l'intensité du flou au besoin */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    color: white;
+    font-family: 'Handjet', cursive;
+    letter-spacing: 3px;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Make the layout vertical */
+	overflow: hidden;
+}
+
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+pre {
+    white-space: pre-wrap;
+    margin-top: 0;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+
+#wrapper {
+    text-align: center;
+}
+
+.glitch {
+    position: relative;
+    color: white;
+    animation: glitch-skew 0.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+      @keyframes glitch-anim {
+        0% {
+          clip: rect(30px, 9999px, 42px, 0);
+          transform: skew(0.85deg);
+        }
+        5% {
+          clip: rect(59px, 9999px, 21px, 0);
+          transform: skew(0.34deg);
+        }
+        10% {
+          clip: rect(99px, 9999px, 15px, 0);
+          transform: skew(0.01deg);
+        }
+        15% {
+          clip: rect(25px, 9999px, 61px, 0);
+          transform: skew(0.97deg);
+        }
+        20% {
+          clip: rect(35px, 9999px, 42px, 0);
+          transform: skew(0.94deg);
+        }
+        25% {
+          clip: rect(39px, 9999px, 62px, 0);
+          transform: skew(0.31deg);
+        }
+        30% {
+          clip: rect(62px, 9999px, 55px, 0);
+          transform: skew(0.9deg);
+        }
+        35% {
+          clip: rect(36px, 9999px, 31px, 0);
+          transform: skew(0.13deg);
+        }
+        40% {
+          clip: rect(27px, 9999px, 26px, 0);
+          transform: skew(0.01deg);
+        }
+        45% {
+          clip: rect(55px, 9999px, 9px, 0);
+          transform: skew(0.5deg);
+        }
+        50% {
+          clip: rect(69px, 9999px, 73px, 0);
+          transform: skew(0.85deg);
+        }
+        55% {
+          clip: rect(53px, 9999px, 89px, 0);
+          transform: skew(0.15deg);
+        }
+        60% {
+          clip: rect(20px, 9999px, 28px, 0);
+          transform: skew(0.62deg);
+        }
+        65% {
+          clip: rect(81px, 9999px, 28px, 0);
+          transform: skew(0.1deg);
+        }
+        70% {
+          clip: rect(54px, 9999px, 93px, 0);
+          transform: skew(0.3deg);
+        }
+        75% {
+          clip: rect(22px, 9999px, 6px, 0);
+          transform: skew(0.84deg);
+        }
+        80% {
+          clip: rect(23px, 9999px, 5px, 0);
+          transform: skew(0.55deg);
+        }
+        85% {
+          clip: rect(24px, 9999px, 76px, 0);
+          transform: skew(0.68deg);
+        }
+        90% {
+          clip: rect(3px, 9999px, 29px, 0);
+          transform: skew(0.48deg);
+        }
+        95% {
+          clip: rect(43px, 9999px, 95px, 0);
+          transform: skew(0.37deg);
+        }
+        100% {
+          clip: rect(58px, 9999px, 66px, 0);
+          transform: skew(0.05deg);
+        }
+      }
+
+      @keyframes glitch-skew {
+        0% {
+          transform: skew(2deg);
+        }
+        10% {
+          transform: skew(4deg);
+        }
+        20% {
+          transform: skew(4deg);
+        }
+        30% {
+          transform: skew(-2deg);
+        }
+        40% {
+          transform: skew(4deg);
+        }
+        50% {
+          transform: skew(2deg);
+        }
+        60% {
+          transform: skew(-3deg);
+        }
+        70% {
+          transform: skew(-1deg);
+        }
+        80% {
+          transform: skew(-3deg);
+        }
+        90% {
+          transform: skew(-2deg);
+        }
+        100% {
+          transform: skew(-2deg);
+        }
+      }
+
+#changingText {
+    font-size: 100px;
+    margin-top: 5px;
+    padding-left: 80px;
+    margin-bottom: 10px;
+position: absolute;
+}
+
+#nyancatContainer {
+    position: absolute;
+    top: -20px; /* Adjust the top value to align with changingText */
+    left: 400px; /* Adjust the left value to position Nyancat next to changingText */
+    display: block;
+z-index: -1;
+}
+       #nyancat {
+            width: 23%; 
+            height: auto; 
+        }
+
+  .star-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    display: block;
+  }
+
+
+.file-manager {
+    width: calc(100% - 20px);
+    max-width: 1000px;
+    
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+	background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+	margin-top:50px;
+	
+}
+
+
+.file-list {
+    width: 100%;
+    margin-top:50px;
+	margin-bottom:10px;
+	min-height: 290px;
+max-height: 290px; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Add a vertical scrollbar when content exceeds the height 
+*/
+	background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+border-radius: 10px;
+align-items:center;
+}
+
+.file-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.file-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.2); /* Add a semi-transparent background */
+    margin: 5px 0;
+		margin-left:1.5%;
+    padding: 10px;
+    border-radius: 5px;
+	max-width: 95%;
+}
+
+/* Style the file details */
+.file-list li span {
+    flex-grow: 1;
+    margin-right: 10px;
+    color: #fff; /* Adjust text color for better visibility */
+}
+
+/* Rest of your existing CSS styles for the file list */
+
+/* Position the download button at the bottom center */
+#downloadButton {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    backdrop-filter: blur(5px); /* Add a blur effect to the button background */
+}
+
+/* Style the drag-and-drop area */
+.drop-area {
+    border: 2px dashed rgba(255, 255, 255, 0.5); /* Add a semi-transparent dashed border */
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    backdrop-filter: blur(5px); /* Add a blur effect to the drop box background */
+}
+
+.drop-area p {
+    margin: 0;
+    color: #fff; /* Adjust text color for better visibility */
+}
+
+#downloadAllButton{
+	margin-top:10px;
+  background-color: #fff000;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+.download-button,.show-button {
+    background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    border: 1px solid transparent;
+    border-radius: .5rem; /* Reduced border radius for smaller button */
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+    line-height: 1.25rem; /* Reduced line height */
+    padding: .5rem 1rem; /* Reduced padding */
+    margin-right: 5px; /* Smaller margin between buttons */
+}
+
+.delete-button {
+    background-color: #000;
+    border-radius: 12px;
+    color: #fff000; /* Changed text color to white for visibility */
+    border: 1px solid transparent;
+    border-radius: .5rem; /* Reduced border radius for smaller button */
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+    line-height: 1.25rem; /* Reduced line height */
+    padding: .5rem 1rem; /* Reduced padding */
+    margin-left: 5px; /* Smaller margin between buttons */
+}
+
+
+
+/* Center the center-container horizontally and vertically */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Center vertically */
+}
+
+#current-path.left-corner {
+    position: absolute;
+    left: 20px;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    white-space: nowrap;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    text-overflow: ellipsis; /* Add ellipsis to indicate text overflow */
+    scrollbar-width: thin; /* Adjust scrollbar width as needed */
+}
+
+
+#GoBackButton{
+position: absolute;
+left: 89%;
+
+background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    border: 1px solid transparent;
+	font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+border-radius: .5rem;
+padding: .5rem 1rem;
+}
+
+
+
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    z-index: 999;
+    text-align: center;
+}
+
+.popup-content {
+    position: relative; 
+   padding: 20px;
+	background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+border-radius: 12px;
+	
+}
+
+.close-button {
+position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: black;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-button:hover {
+    color: #fff000; /* Couleur rouge au survol */
+}
+
+
+/* Assure que le contenu du fichier est centré */
+.file-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+#changingText {
+    left:150px;
+
+}
+
+.star-container{
+	display:none;
+  }
+
+.file-manager {
+    width: 100%;
+	height:65%;
+    padding: 20px;
+    margin-top:130px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.file-list {
+    min-height:670px;
+    max-height: 670px;
+}
+
+/* Styles pour les boutons */
+.download-button,
+.show-button,
+.delete-button {
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 5px 0;
+}
+
+.center-container {
+    justify-content: flex-start; /* Centrez verticalement pour les téléphones */
+    align-items: flex-start; /* Centrez horizontalement pour les téléphones */
+    height: auto; /* Supprimez la hauteur fixe */
+}
+
+#current-path.left-corner {
+    left: 20px;
+    padding: 10px;
+	margin-bottom:20px;
+}
+
+#GoBackButton {
+    left: 85%;
+}
+
+#nyancatContainer {
+	display:none;
+}
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+  <div class="background"></div>
+<div class="point-container" id="point-container"></div>
+<div class="star-container" id="star-container"></div>
+
+<div class="top-left-container">
+        <div id="changingText" class="glitch">LE_LAB0</div>
+        <div id="nyancatContainer">
+            <img id="nyancat" src="rocket.gif" alt="Nyancat">
+        </div>
+    </div>
+
+
+<div class="center-container">
+<div class="file-manager">
+<div id="current-path" class="left-corner">
+    <div class="text-container" id="current-path-text">
+    </div>
+</div>
+
+<div class="open-ssh-port">
+            <button id="GoBackButton">Go Back</button>
+        </div>
+
+            <!-- File List Section -->
+            <div class="file-list">
+                <ul id="fileList">
+                    <!-- File details will be added here dynamically using JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Drag and Drop Section -->
+            <div class="file-upload">
+                <div id="dropArea" class="drop-area">
+                    <p>Drag and drop files here<br>Or<br> click to select</p>
+							<input type="file" id="fileInput" multiple style="display: none;">
+                </div>
+					<button id="downloadAllButton" disabled>Download Selected</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+<div id="popup" class="popup">
+        <div class="popup-content">
+		<button id="closeButton" class="close-button">&times;</button>
+            <div id="fileContent" class="file-content">
+              <object id="objectViewer" data="TODO.txt" type="application/pdf" width="100%" height="100%">
+
+            </div>
+        </div>
+    </div>
+
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+
+<script>
+const pointContainer = document.getElementById('point-container');
+const starContainer = document.getElementById('star-container');
+document.addEventListener('DOMContentLoaded', () => {
+
+  particlesJS('star-container', {
+    particles: {
+      number: { value: 200, density: { enable: true, value_area: 800 } },
+      color: { value: '#ffffff' },
+      shape: { type: 'star' },
+      opacity: { value: 1, random: false },
+      size: { value: 2, random: true },
+      line_linked: { enable: false, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+      move: {
+        enable: true,
+        speed: 10,
+        direction: 'left',
+        random: false,
+        straight: true,
+        out_mode: 'out',
+        bounce: false,
+        attract: { enable: false, rotateX: 3000, rotateY: 3000 },
+      },
+    },
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const fileList = document.getElementById("fileList");
+    const downloadAllButton = document.getElementById("downloadAllButton");
+    const dropArea = document.getElementById("dropArea");
+
+
+		    dropArea.addEventListener("click", () => {
+        fileInput.click();
+    });
+
+    // Handle file selection when files are chosen through the input element
+    fileInput.addEventListener("change", (e) => {
+        const files = e.target.files;
+        // Handle selected files here
+        for (const file of files) {
+            console.log(`Selected file: ${file.name}`);
+            // Implement file upload logic here
+            // You can add the selected file to the file list
+            createFileListItem(file.name);
+        }
+    });
+
+    const selectedFiles = new Set(); // To store selected files
+
+    // Simulate existing files on the server (you can fetch this dynamically)
+    const serverFiles = [
+        "file.txt",
+        "file.pdf",
+        "file.docx",
+			"file.txt",
+			"file.txt",
+			"file.txt",
+			"file.txt",
+        "file.pdf",
+        "file.docx",
+			"file.txt",
+			"file.txt",
+			"file.txt",
+			"file.txt",
+        "file.pdf",
+        "file.docx",
+			"file.txt",
+			"file.txt",
+			"file.txt",
+			"file.txt",
+        "file.pdf",
+        "file.docx",
+			"file.txt",
+			"file.txt",
+			"file.txt",
+        // Add more file names as needed
+    ];
+
+    // Function to create file list items
+    function createFileListItem(fileName) {
+        const listItem = document.createElement("li");
+listItem.innerHTML = `
+<label class="label-container" for="custom-checkbox-${fileName}">
+    <input type="checkbox" id="custom-checkbox-${fileName}" data-file="${fileName}">
+    ${fileName}
+</label>
+
+
+    <div class="button-container">
+			<button class="show-button">Show</button>
+        <button class="download-button">Download</button>
+        <button class="delete-button">Delete</button>
+			
+    </div>
+
+
+
+`;
+fileList.appendChild(listItem);
+
+        // Attach event listener to checkbox
+        const checkbox = listItem.querySelector("input[type='checkbox']");
+        checkbox.addEventListener("change", () => {
+            const isChecked = checkbox.checked;
+            if (isChecked) {
+                selectedFiles.add(fileName);
+            } else {
+                selectedFiles.delete(fileName);
+            }
+            updateDownloadButtonState();
+        });
+
+        // Attach event listener to download button
+        const downloadBtn = listItem.querySelector(".download-button");
+        downloadBtn.addEventListener("click", () => {
+            // Implement download logic here for the selectedFile
+            console.log(`Downloading ${fileName}`);
+        });
+
+const deleteBtn = listItem.querySelector(".delete-button");
+        deleteBtn.addEventListener("click", () => {
+            const selectedFile = deleteBtn.getAttribute("data-file");
+            // Implement delete logic here for the selectedFile
+            if (confirm(`Delete ${selectedFile}?`)) {
+                // Perform the deletion on the server
+                console.log(`Deleting ${selectedFile}`);
+                // Remove the file from the file manager UI
+                listItem.remove();
+            }
+        });
+
+
+// Récupération du bouton "Show" dans l'élément de la liste
+const showBtn = listItem.querySelector(".show-button");
+
+// Écouteur d'événement pour le bouton "Show"
+showBtn.addEventListener("click", () => {
+    // Afficher la popup
+    popup.style.display = 'block';
+});
+
+    }
+
+
+// Récupération du bouton de fermeture
+const closeButton = document.getElementById('closeButton');
+
+// Écouteur d'événement pour le bouton de fermeture
+closeButton.addEventListener('click', () => {
+    // Masquer la popup lorsque le bouton est cliqué
+    popup.style.display = 'none';
+});
+
+
+
+
+const objectViewer = document.getElementById('objectViewer');
+
+// Fonction pour ajuster la taille de la pop-up en fonction de la taille du fichier
+function adjustPopupSize() {
+    // Récupérez les dimensions du fichier
+    const pdfWidth = objectViewer.clientWidth;
+    const pdfHeight = objectViewer.clientHeight;
+
+    // Déterminez si le PDF est vertical ou horizontal
+    const isVertical = pdfWidth < pdfHeight;
+
+    // Définissez les dimensions maximales de la pop-up
+    const maxWidth = isVertical ? 400 : 700;
+    const maxHeight = isVertical ? 700 : 400;
+
+    // Calculez la taille réelle de la pop-up en respectant les dimensions maximales
+    const popupWidth = Math.min(pdfWidth, maxWidth);
+    const popupHeight = Math.min(pdfHeight, maxHeight);
+
+    // Appliquez les dimensions à la pop-up
+    const popup = document.getElementById('popup');
+    popup.style.width = `${popupWidth}px`;
+    
+}
+
+// Attendez que le contenu PDF soit chargé avant d'appeler la fonction d'ajustement
+objectViewer.onload = adjustPopupSize;
+
+
+
+
+
+    // Populate the file list
+    serverFiles.forEach((fileName) => {
+        createFileListItem(fileName);
+    });
+
+    // Enable/disable the download button based on selection
+    function updateDownloadButtonState() {
+        downloadAllButton.disabled = selectedFiles.size === 0;
+    }
+
+    downloadAllButton.addEventListener("click", () => {
+        // Download selected files
+        selectedFiles.forEach((fileName) => {
+            // Implement download logic here for the selectedFile
+            console.log(`Downloading ${fileName}`);
+        });
+    });
+
+    // Drag and drop functionality
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("drag-over");
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("drag-over");
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+        e.preventDefault();
+        dropArea.classList.remove("drag-over");
+        const files = e.dataTransfer.files;
+        // Handle uploaded files here
+        for (const file of files) {
+            console.log(`Uploaded file: ${file.name}`);
+            // Implement file upload logic here
+            // You can add the uploaded file to the file list
+            createFileListItem(file.name);
+        }
+    });
+});
+
+// Obtenez une référence vers la balise <div> pour afficher le chemin
+const currentPathElement = document.getElementById('current-path-text');
+
+// Initialisez le chemin actuel à la racine
+let currentPath = '/'; // Vous pouvez ajuster cela en fonction de votre structure de fichiers
+
+// Fonction pour mettre à jour le chemin actuel
+function updateCurrentPath(newPath) {
+  currentPath = newPath;
+  currentPathElement.textContent = `Current Path => ${currentPath}`;
+}
+
+// Exemple d'utilisation pour mettre à jour le chemin actuel
+updateCurrentPath('-/DOSSIER1/DOSSIER2/DOSSIER3/DOSSIER4/'); // Vous pouvez appeler cette fonction lorsque l'utilisateur navigue
+
+
+</script>
+</body>
+</html>

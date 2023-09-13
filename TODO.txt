@@ -1,0 +1,34 @@
+(COTÉ UTILISATEUR)
+
+Parcours dans les dossiers. (√)
+
+Bouton retour arriere. (!) -> Bouton fait mais pas Script JS
+
+Gestion des dossiers. ()
+
+PopUp appercu des fichier qui le permettent [image texte pdf ...]. (√)
+
+Permettre l'ajout de description et l'afficher avec le bouton show pour les fichier qui ne sont par perceptible [dossiers RAR ...]. ()
+
+Blocage de securité au bout de 3 tentatives de connexion qui ont echoués. ()
+
+Ajouter les modification nessaissaires pour la version SMARTPHONE. ()
+
+# Peut etre ajouter un compte invité avec dessus 10Go pour les Tests. ()
+
+Penser a integrer un retour de terminal directement dans l'interface utilisateur, etant donné que le serveur est sur un Arduino bah autant profiter du fait que c'est un ordi et l'utiliser pour directement compiler du code et l'afficher dans une popup sur l'interface utilisateur. ()
+
+
+
+
+(COTÉ SERVEUR)
+
+Mettre en place le serveur Apache. [HTTPS PAS HTTP] ()
+
+Configurer le serveur Apache. ()
+
+Coder la partie serveur [Python_Flask ou Node.js]. ()
+
+Ajouter les fonctionnalité de Connexion coté Serveur [Login Mot_De_Passe] ()
+
+Ajouter les fonctionnalité Coté Serveur [Telechargement_entrant/sortant Gestion_du_chemin Parcours_arriere_chemin Appercu_fichiers Drag_n_Drop ...]. ()
