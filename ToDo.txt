@@ -1,0 +1,3 @@
+Securité !!!!
+le mot de passe est bien securisé, il est généré avec le programme password puis stocké dans un fichier Json,
+il est ensuite utilisé parle programme principal pour etre decrypté.

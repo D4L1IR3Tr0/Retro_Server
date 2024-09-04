@@ -1,0 +1,976 @@
+<!--
+         __          __         __          __        __
+        /\ \        /\ \       /\ \        /\ \      / /\
+       /  \ \      /  \ \      \_\ \      /  \ \    / /  \
+      / /\ \ \    / /\ \ \     /\__ \    / /\ \ \  / / /\ \
+     / / /\ \_\  / / /\ \_\   / /_ \ \  / / /\ \_\/ / /\ \ \
+    / / /_/ / / / /_/_ \/_/  / / /\ \ \/ / /_/ / /_/ /  \ \ \
+   / / /__\/ / / /____/\    / / /  \/_/ / /__\/ /\ \ \   \ \ \
+  / / /_____/ / /\____\/   / / /     / / /_____/  \ \ \   \ \ \
+ / / /\ \ \  / / /______  / / /     / / /\ \ \     \ \ \___\ \ \
+/ / /  \ \ \/ / /_______\/_/ /     / / /  \ \ \     \ \/____\ \ \
+\/_/    \_\/\/__________/\_\/      \/_/    \_\/      \_________\/
+retrochorizo@proton.me 
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.js"></script>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Ubuntu+Condensed&display=swap');
+
+body {
+background: black;
+background-image: linear-gradient(to right, rgba(19, 38, 58, 0.5), rgba(31, 63, 97, 0.5), rgba(77, 0, 77, 0.3), rgba(230, 92, 0, 0.3));
+background-size: 200% 200%;
+    animation: nebula 20s ease infinite;
+    backdrop-filter: blur(10px); /* Ajustez l'intensité du flou au besoin */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    color: white;
+    font-family: 'Handjet', cursive;
+    letter-spacing: 3px;
+    margin: 0;
+    display: flex;
+    flex-direction: column; /* Make the layout vertical */
+	overflow: hidden;
+}
+
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+pre {
+    white-space: pre-wrap;
+    margin-top: 0;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+
+#wrapper {
+    text-align: center;
+}
+
+.glitch {
+    position: relative;
+    color: white;
+    animation: glitch-skew 0.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+      @keyframes glitch-anim {
+        0% {
+          clip: rect(30px, 9999px, 42px, 0);
+          transform: skew(0.85deg);
+        }
+        5% {
+          clip: rect(59px, 9999px, 21px, 0);
+          transform: skew(0.34deg);
+        }
+        10% {
+          clip: rect(99px, 9999px, 15px, 0);
+          transform: skew(0.01deg);
+        }
+        15% {
+          clip: rect(25px, 9999px, 61px, 0);
+          transform: skew(0.97deg);
+        }
+        20% {
+          clip: rect(35px, 9999px, 42px, 0);
+          transform: skew(0.94deg);
+        }
+        25% {
+          clip: rect(39px, 9999px, 62px, 0);
+          transform: skew(0.31deg);
+        }
+        30% {
+          clip: rect(62px, 9999px, 55px, 0);
+          transform: skew(0.9deg);
+        }
+        35% {
+          clip: rect(36px, 9999px, 31px, 0);
+          transform: skew(0.13deg);
+        }
+        40% {
+          clip: rect(27px, 9999px, 26px, 0);
+          transform: skew(0.01deg);
+        }
+        45% {
+          clip: rect(55px, 9999px, 9px, 0);
+          transform: skew(0.5deg);
+        }
+        50% {
+          clip: rect(69px, 9999px, 73px, 0);
+          transform: skew(0.85deg);
+        }
+        55% {
+          clip: rect(53px, 9999px, 89px, 0);
+          transform: skew(0.15deg);
+        }
+        60% {
+          clip: rect(20px, 9999px, 28px, 0);
+          transform: skew(0.62deg);
+        }
+        65% {
+          clip: rect(81px, 9999px, 28px, 0);
+          transform: skew(0.1deg);
+        }
+        70% {
+          clip: rect(54px, 9999px, 93px, 0);
+          transform: skew(0.3deg);
+        }
+        75% {
+          clip: rect(22px, 9999px, 6px, 0);
+          transform: skew(0.84deg);
+        }
+        80% {
+          clip: rect(23px, 9999px, 5px, 0);
+          transform: skew(0.55deg);
+        }
+        85% {
+          clip: rect(24px, 9999px, 76px, 0);
+          transform: skew(0.68deg);
+        }
+        90% {
+          clip: rect(3px, 9999px, 29px, 0);
+          transform: skew(0.48deg);
+        }
+        95% {
+          clip: rect(43px, 9999px, 95px, 0);
+          transform: skew(0.37deg);
+        }
+        100% {
+          clip: rect(58px, 9999px, 66px, 0);
+          transform: skew(0.05deg);
+        }
+      }
+
+      @keyframes glitch-skew {
+        0% {
+          transform: skew(2deg);
+        }
+        10% {
+          transform: skew(4deg);
+        }
+        20% {
+          transform: skew(4deg);
+        }
+        30% {
+          transform: skew(-2deg);
+        }
+        40% {
+          transform: skew(4deg);
+        }
+        50% {
+          transform: skew(2deg);
+        }
+        60% {
+          transform: skew(-3deg);
+        }
+        70% {
+          transform: skew(-1deg);
+        }
+        80% {
+          transform: skew(-3deg);
+        }
+        90% {
+          transform: skew(-2deg);
+        }
+        100% {
+          transform: skew(-2deg);
+        }
+      }
+
+#changingText {
+    font-size: 100px;
+    margin-top: 5px;
+    padding-left: 80px;
+    margin-bottom: 10px;
+position: absolute;
+}
+
+#nyancatContainer {
+    position: absolute;
+    top: -20px; /* Adjust the top value to align with changingText */
+    left: 400px; /* Adjust the left value to position Nyancat next to changingText */
+    display: block;
+z-index: -1;
+}
+       #nyancat {
+            width: 23%; 
+            height: auto; 
+        }
+
+  .star-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    display: block;
+  }
+
+
+.file-manager {
+    width: calc(100% - 20px);
+    max-width: 1000px;
+    
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+	background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+	margin-top:50px;
+	
+}
+
+
+.file-list {
+    width: 100%;
+    margin-top:50px;
+	margin-bottom:10px;
+	min-height: 290px;
+max-height: 290px; /* Adjust the maximum height as needed */
+    overflow-y: auto; /* Add a vertical scrollbar when content exceeds the height 
+*/
+	background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+border-radius: 10px;
+align-items:center;
+}
+
+.file-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.file-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, 0.2); /* Add a semi-transparent background */
+    margin: 5px 0;
+		margin-left:1.5%;
+    padding: 10px;
+    border-radius: 5px;
+	max-width: 95%;
+}
+
+/* Style the file details */
+.file-list li span {
+    flex-grow: 1;
+    margin-right: 10px;
+    color: #fff; /* Adjust text color for better visibility */
+}
+
+/* Rest of your existing CSS styles for the file list */
+
+/* Position the download button at the bottom center */
+#downloadButton {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    backdrop-filter: blur(5px); /* Add a blur effect to the button background */
+}
+
+/* Style the drag-and-drop area */
+.drop-area {
+    border: 2px dashed rgba(255, 255, 255, 0.5); /* Add a semi-transparent dashed border */
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    backdrop-filter: blur(5px); /* Add a blur effect to the drop box background */
+}
+
+.drop-area p {
+    margin: 0;
+    color: #fff; /* Adjust text color for better visibility */
+}
+
+#downloadAllButton{
+	margin-top:10px;
+  background-color: #fff000;
+  border-radius: 12px;
+  color: #000;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+
+.download-button,.show-button {
+    background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    border: 1px solid transparent;
+    border-radius: .5rem; /* Reduced border radius for smaller button */
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+    line-height: 1.25rem; /* Reduced line height */
+    padding: .5rem 1rem; /* Reduced padding */
+    margin-right: 5px; /* Smaller margin between buttons */
+}
+
+.delete-button {
+    background-color: #000;
+    border-radius: 12px;
+    color: #fff000; /* Changed text color to white for visibility */
+    border: 1px solid transparent;
+    border-radius: .5rem; /* Reduced border radius for smaller button */
+    cursor: pointer;
+    font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+    line-height: 1.25rem; /* Reduced line height */
+    padding: .5rem 1rem; /* Reduced padding */
+    margin-left: 5px; /* Smaller margin between buttons */
+}
+
+
+
+/* Center the center-container horizontally and vertically */
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Center vertically */
+}
+
+#current-path.left-corner {
+    position: absolute;
+    left: 20px;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+    white-space: nowrap;
+    overflow-x: scroll; /* Enable horizontal scrolling */
+    text-overflow: ellipsis; /* Add ellipsis to indicate text overflow */
+    scrollbar-width: thin; /* Adjust scrollbar width as needed */
+}
+
+
+#GoBackButton{
+position: absolute;
+left: 80%;
+
+background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    border: 1px solid transparent;
+	font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+border-radius: .5rem;
+padding: .5rem 1rem;
+}
+
+#SSHButton{
+position: absolute;
+left: 90%;
+
+background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    border: 1px solid transparent;
+    font-size: 14px; /* Reduced font size */
+    font-weight: 600;
+border-radius: .5rem;
+padding: .5rem 1rem;
+}
+
+
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent;
+    z-index: 999;
+    text-align: center;
+}
+
+.popup-content {
+    position: relative;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    max-width: 80%;
+}
+
+/* Add styles to make the content inside the popup bigger */
+.object-container {
+    width: 100%; /* Make the content width 100% of the container */
+    height: 100%; /* Make the content height 100% of the container */
+}
+
+/* You can adjust font size or other styles as needed */
+.object-container object {
+    width: 100%; /* Make the content width 100% of the container */
+    height: 100%; /* Make the content height 100% of the container */
+    font-size: 20px; /* Increase font size for text content */
+}
+
+
+
+
+
+
+
+.close-button {
+position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: black;
+    transition: color 0.3s ease-in-out;
+}
+
+.close-button:hover {
+    color: #fff000; /* Couleur rouge au survol */
+}
+
+
+/* Assure que le contenu du fichier est centré */
+.file-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+@media (max-width: 900px) {
+
+#changingText {
+    left:150px;
+
+}
+
+.star-container{
+	display:none;
+  }
+
+.file-manager {
+    width: 100%;
+	height:65%;
+    padding: 20px;
+    margin-top:130px;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.file-list {
+    min-height:670px;
+    max-height: 670px;
+}
+
+/* Styles pour les boutons */
+.download-button,
+.show-button,
+.delete-button {
+    font-size: 14px;
+    padding: 10px 15px;
+    margin: 5px 0;
+}
+
+.center-container {
+    justify-content: flex-start; /* Centrez verticalement pour les téléphones */
+    align-items: flex-start; /* Centrez horizontalement pour les téléphones */
+    height: auto; /* Supprimez la hauteur fixe */
+}
+
+#current-path.left-corner {
+    left: 20px;
+    padding: 10px;
+	margin-bottom:20px;
+}
+
+#GoBackButton {
+    left: 85%;
+}
+
+#nyancatContainer {
+	display:none;
+}
+}
+
+
+
+</style>
+    <title><R3TR0></title>
+</head>
+<body>
+
+
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+  <div class="background"></div>
+<div class="point-container" id="point-container"></div>
+<div class="star-container" id="star-container"></div>
+
+<div class="top-left-container">
+        <div id="changingText" class="glitch">LE_LAB0</div>
+        <div id="nyancatContainer">
+            <img id="nyancat" src="rocket.gif" alt="Nyancat">
+        </div>
+    </div>
+
+
+<div class="center-container">
+<div class="file-manager">
+<div id="current-path" class="left-corner">
+    <div class="text-container" id="current-path-text">
+    </div>
+</div>
+
+
+
+<div class="open-ssh-port">
+            <button id="GoBackButton">Go Back</button>
+            <button id="SSHButton">SSH</button>
+        </div>
+
+            <!-- File List Section -->
+            <div class="file-list">
+                <ul id="fileList">
+                    <!-- File details will be added here dynamically using JavaScript -->
+                </ul>
+            </div>
+
+            <!-- Drag and Drop Section -->
+            <div class="file-upload">
+                <div id="dropArea" class="drop-area">
+                    <p>Drag and drop files here<br>Or<br> click to select</p>
+							<input type="file" id="fileInput" name="file" multiple style="display: none;">
+                </div>
+					<button id="downloadAllButton" disabled>Download Selected</button>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <button id="closeButton" class="close-button">&times;</button>
+        <div class="file-content">
+            <div id="objectContainer" class="object-container">
+                <object id="objectViewer" type="application/pdf" width="100%" height="100%">
+                </object>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+
+<script>
+const pointContainer = document.getElementById('point-container');
+const starContainer = document.getElementById('star-container');
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  particlesJS('star-container', {
+    particles: {
+      number: { value: 200, density: { enable: true, value_area: 800 } },
+      color: { value: '#ffffff' },
+      shape: { type: 'star' },
+      opacity: { value: 1, random: false },
+      size: { value: 2, random: true },
+      line_linked: { enable: false, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+      move: {
+        enable: true,
+        speed: 10,
+        direction: 'left',
+        random: false,
+        straight: true,
+        out_mode: 'out',
+        bounce: false,
+        attract: { enable: false, rotateX: 3000, rotateY: 3000 },
+      },
+    },
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Récupérer les éléments du DOM
+    const fileList = document.getElementById("fileList");
+    const downloadAllButton = document.getElementById("downloadAllButton");
+    const dropArea = document.getElementById("dropArea");
+    const fileInput = document.getElementById("fileInput");
+    const fileInputUpload = document.getElementById("fileInputUpload");
+    const fileInputDownload = document.getElementById("fileInputDownload");
+    const goBackButton = document.getElementById('GoBackButton');
+    const SSHButton = document.getElementById('SSHButton');
+    const currentPathElement = document.getElementById('current-path-text');
+    const folderContents = document.getElementById('folderContents'); // New element
+
+    // Fonction pour mettre à jour le chemin actuel
+    function updateCurrentPath(newPath) {
+        currentPathElement.textContent = `Current Path => ${newPath}`;
+    }
+
+    // Initialiser le chemin actuel à la racine
+    let currentPath = 'uploaded_files'; // Vous pouvez ajuster cela en fonction de votre structure de uploaded_files
+    updateCurrentPath(currentPath); // Met à jour le chemin actuel
+
+    // Gérer la sélection de uploaded_files lorsque des uploaded_files sont choisis via l'élément d'entrée
+    fileInput.addEventListener("change", (e) => {
+        const files = e.target.files;
+        // Traiter les uploaded_files sélectionnés ici
+        for (const file of files) {
+            console.log(`Selected file: ${file.name}`);
+            // Implémenter la logique de téléchargement du fichier ici
+            // Vous pouvez ajouter le fichier sélectionné à la liste des uploaded_files
+            createFileListItem(file.name);
+        }
+    });
+
+    const selectedFiles = new Set(); // Pour stocker les uploaded_files sélectionnés
+
+    // Simuler les uploaded_files existants sur le serveur (vous pouvez les récupérer dynamiquement)
+    const serverFiles = [];
+
+fetch("/files/uploaded_files")
+  .then((response) => response.json())
+  .then((data) => {
+    // data.contents contient la liste des fichiers et sous-répertoires du répertoire "uploaded_files"
+    data.contents.forEach((item) => {
+      console.log(item); // Affiche le nom de chaque fichier ou sous-répertoire
+    });
+  })
+  .catch((error) => {
+    console.error("Error fetching directory contents:", error);
+  });
+
+    // Fonction pour créer des éléments de liste de uploaded_files
+    function createFileListItem(fileName) {
+    // Check if a file with the same name already exists in the list
+    if (document.querySelector(`[data-file="${fileName}"]`)) {
+        console.log(`File ${fileName} already exists in the list.`);
+        return; // Skip creating a duplicate entry
+    }
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+            <label class="label-container" for="custom-checkbox-${fileName}">
+                <input type="checkbox" id="custom-checkbox-${fileName}" data-file="${fileName}">
+                ${fileName}
+            </label>
+            <div class="button-container">
+                <button class="show-button" data-file="${fileName}">Show</button>
+                <button class="download-button" data-file="${fileName}">Download</button>
+                <button class="delete-button" data-file="${fileName}">Delete</button>
+            </div>
+        `;
+        fileList.appendChild(listItem);
+
+
+        // Attacher un écouteur d'événements au bouton de case à cocher
+        const checkbox = listItem.querySelector("input[type='checkbox']");
+        checkbox.addEventListener("change", () => {
+            const isChecked = checkbox.checked;
+            if (isChecked) {
+                selectedFiles.add(fileName);
+            } else {
+                selectedFiles.delete(fileName);
+            }
+            updateDownloadButtonState();
+        });
+
+// Attacher un écouteur d'événements au bouton de téléchargement
+const downloadBtn = listItem.querySelector(".download-button");
+downloadBtn.addEventListener("click", () => {
+    // Récupérer le nom du fichier à télécharger depuis l'attribut data-file
+    const selectedFile = downloadBtn.getAttribute("data-file");
+
+    // Construire l'URL de téléchargement en fonction du nom du fichier
+    const downloadUrl = `/download/${selectedFile}`;
+
+    // Créez un lien invisible pour déclencher le téléchargement
+    const downloadLink = document.createElement("a");
+    downloadLink.href = downloadUrl;
+    downloadLink.download = selectedFile;
+
+    // Simulez un clic sur le lien pour déclencher le téléchargement
+    downloadLink.click();
+
+    console.log(`Downloading ${selectedFile}`);
+});
+
+
+let isSSHServerRunning = false;
+
+
+SSHButton.addEventListener('click', function () {
+    if (isSSHServerRunning) {
+        // Send an HTTP request to stop the SSH server on the server-side.
+        fetch('/stopSSHServer', {
+            method: 'POST',
+        })
+        .then(response => {
+            if (response.status === 200) {
+                console.log('SSH server stopped successfully.');
+                SSHButton.textContent = 'Start SSH Server';
+                SSHButton.classList.remove('on'); // Remove the "on" class
+                isSSHServerRunning = false;
+            } else {
+                console.error('Failed to stop SSH server.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    } else {
+        // Send an HTTP request to start the SSH server on the server-side.
+        fetch('/startSSHServer', {
+            method: 'POST',
+        })
+        .then(response => {
+            if (response.status === 200) {
+                console.log('SSH server started successfully.');
+                SSHButton.textContent = 'Stop SSH Server';
+                SSHButton.classList.add('on'); // Add the "on" class
+                isSSHServerRunning = true;
+            } else {
+                console.error('Failed to start SSH server.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+});
+
+
+// Dans la logique du bouton "Show" côté client
+const showBtn = listItem.querySelector(".show-button");
+showBtn.addEventListener("click", () => {
+    // Récupérer le nom du fichier à afficher depuis l'attribut data-file
+    const selectedFile = showBtn.getAttribute("data-file");
+
+    // Construire l'URL pour afficher le contenu du fichier en utilisant la route côté serveur
+    const showUrl = `/show/${selectedFile}`;
+
+    // Ouvrir le popup
+    const popup = document.getElementById("popup");
+    popup.style.display = "block"; // Afficher la popup
+
+    // Mettre à jour la source de l'élément <object> avec l'URL du fichier
+    const objectViewer = document.getElementById("objectViewer");
+    objectViewer.data = showUrl;
+
+    console.log(`Displaying ${selectedFile}`);
+});
+
+// Gérer le bouton de fermeture du popup
+const closeButton = document.getElementById("closeButton");
+closeButton.addEventListener("click", () => {
+    // Cacher le popup
+    const popup = document.getElementById("popup");
+    popup.style.display = "none"; // Cacher la popup
+
+    // Réinitialiser la source de l'élément <object> pour arrêter l'affichage du fichier
+    const objectViewer = document.getElementById("objectViewer");
+    objectViewer.data = "";
+
+    console.log("Popup closed");
+});
+
+
+
+
+        // Attacher un écouteur d'événements au bouton de suppression
+        const deleteBtn = listItem.querySelector(".delete-button");
+        deleteBtn.addEventListener("click", () => {
+            const selectedFile = deleteBtn.getAttribute("data-file");
+            if (confirm(`Delete ${selectedFile}?`)) {
+                // Implémenter la logique de suppression ici pour le fichier sélectionné
+                fetch(`/delete/${selectedFile}`, {
+                    method: "DELETE",
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        console.log(data.message);
+                        // Implémenter toutes les mises à jour UI nécessaires après la suppression réussie
+                        listItem.remove(); // Supprimer le fichier de l'interface utilisateur
+                    })
+                    .catch((error) => {
+                        console.error("Error deleting file:", error);
+                    });
+            }
+        });
+    }
+
+    // Remplir la liste de uploaded_files
+    serverFiles.forEach((fileName) => {
+        createFileListItem(fileName);
+    });
+
+    // Activer/désactiver le bouton de téléchargement en fonction de la sélection
+    function updateDownloadButtonState() {
+        downloadAllButton.disabled = selectedFiles.size === 0;
+    }
+
+    downloadAllButton.addEventListener("click", () => {
+        // Télécharger les uploaded_files sélectionnés
+        selectedFiles.forEach((fileName) => {
+            // Implémenter la logique de téléchargement ici pour le fichier sélectionné
+            console.log(`Downloading ${fileName}`);
+        });
+    });
+
+    // Fonctionnalité de glisser-déposer
+    dropArea.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropArea.classList.add("drag-over");
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+        dropArea.classList.remove("drag-over");
+    });
+
+
+    // Add a click event listener to the dropArea to make it clickable
+    dropArea.addEventListener("click", () => {
+        fileInput.click(); // Trigger a click on the hidden file input
+    });
+
+    // Add a change event listener to the file input
+    fileInput.addEventListener("change", (e) => {
+        const files = e.target.files; // Use e.target.files to access selected files
+        // Handle file uploads when a file is selected
+        for (const file of files) {
+            console.log(`Uploaded file: ${file.name}`);
+            // Implémenter la logique de téléchargement du fichier ici
+            // Vous pouvez ajouter le fichier téléchargé à la liste des uploaded_files
+            createFileListItem(file.name);
+        }
+
+        // Créer un objet FormData avec le paramètre "files" contenant les uploaded_files à uploader
+        const formData = new FormData();
+        for (const file of files) {
+            formData.append("files", file);
+        }
+        // Envoyer l'objet FormData à la route POST du serveur avec la méthode fetch
+        fetch("/upload", {
+            method: "POST",
+            body: formData,
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                // Afficher le message de succès dans la console
+                console.log(data.message);
+            })
+            .catch((error) => {
+                // Afficher l'erreur dans la console
+                console.error("Error uploading files:", error);
+            });
+    });
+
+    // Function to update the current path on the client side
+    function updateCurrentPathOnClient() {
+        fetch("/currentPath") // Make a GET request to the server to fetch the current path
+            .then((response) => response.json())
+            .then((data) => {
+                // Update the content of the element with the received current path
+                const currentPathElement = document.getElementById('current-path-text');
+                currentPathElement.textContent = `Current Path => ${data.currentPath}`;
+            })
+            .catch((error) => {
+                console.error("Error fetching current path:", error);
+            });
+    }
+
+    // Call the updateCurrentPathOnClient function when needed to update the current path
+    // For example, after changing directories or loading a new page
+    updateCurrentPathOnClient();
+});
+
+
+
+</script>
+</body>
+</html>

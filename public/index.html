@@ -1,0 +1,464 @@
+<!--
+         __          __         __          __        __
+        /\ \        /\ \       /\ \        /\ \      / /\
+       /  \ \      /  \ \      \_\ \      /  \ \    / /  \
+      / /\ \ \    / /\ \ \     /\__ \    / /\ \ \  / / /\ \
+     / / /\ \_\  / / /\ \_\   / /_ \ \  / / /\ \_\/ / /\ \ \
+    / / /_/ / / / /_/_ \/_/  / / /\ \ \/ / /_/ / /_/ /  \ \ \
+   / / /__\/ / / /____/\    / / /  \/_/ / /__\/ /\ \ \   \ \ \
+  / / /_____/ / /\____\/   / / /     / / /_____/  \ \ \   \ \ \
+ / / /\ \ \  / / /______  / / /     / / /\ \ \     \ \ \___\ \ \
+/ / /  \ \ \/ / /_______\/_/ /     / / /  \ \ \     \ \/____\ \ \
+\/_/    \_\/\/__________/\_\/      \/_/    \_\/      \_________\/
+retrochorizo@proton.me
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@700&family=Ubuntu+Condensed&display=swap');
+
+
+
+body {
+	background: black;
+    background-image: linear-gradient(to bottom, rgba(19, 38, 58, 0.5), rgba(31, 63, 97, 0.5), rgba(77, 0, 77, 0.3), rgba(230, 92, 0, 0.3));
+    background-size: 100%;
+    backdrop-filter: blur(10px); /* Adjust the blur intensity as needed */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+
+    
+    color: white;
+    text-align: center;
+    font-family: 'Handjet', cursive;
+    letter-spacing: 3px;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Align content vertically */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+		overflow: hidden;
+}
+
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+pre {
+    white-space: pre-wrap;
+    margin-top: 0;
+}
+
+#changingText {
+    font-size: 150px;
+	 margin-top: -180px;
+    margin-bottom: 150px; /* Reduce the gap between changingText and the form */
+}
+
+ul {
+    list-style: none;
+}
+
+.point-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    display: block;
+}
+
+#wrapper {
+    text-align: center;
+}
+
+.glitch {
+    position: relative;
+    color: white;
+    animation: glitch-skew 0.5s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    left: -2px;
+    text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+    animation: glitch-anim2 1s infinite linear alternate-reverse;
+}
+
+      @keyframes glitch-anim {
+        0% {
+          clip: rect(30px, 9999px, 42px, 0);
+          transform: skew(0.85deg);
+        }
+        5% {
+          clip: rect(59px, 9999px, 21px, 0);
+          transform: skew(0.34deg);
+        }
+        10% {
+          clip: rect(99px, 9999px, 15px, 0);
+          transform: skew(0.01deg);
+        }
+        15% {
+          clip: rect(25px, 9999px, 61px, 0);
+          transform: skew(0.97deg);
+        }
+        20% {
+          clip: rect(35px, 9999px, 42px, 0);
+          transform: skew(0.94deg);
+        }
+        25% {
+          clip: rect(39px, 9999px, 62px, 0);
+          transform: skew(0.31deg);
+        }
+        30% {
+          clip: rect(62px, 9999px, 55px, 0);
+          transform: skew(0.9deg);
+        }
+        35% {
+          clip: rect(36px, 9999px, 31px, 0);
+          transform: skew(0.13deg);
+        }
+        40% {
+          clip: rect(27px, 9999px, 26px, 0);
+          transform: skew(0.01deg);
+        }
+        45% {
+          clip: rect(55px, 9999px, 9px, 0);
+          transform: skew(0.5deg);
+        }
+        50% {
+          clip: rect(69px, 9999px, 73px, 0);
+          transform: skew(0.85deg);
+        }
+        55% {
+          clip: rect(53px, 9999px, 89px, 0);
+          transform: skew(0.15deg);
+        }
+        60% {
+          clip: rect(20px, 9999px, 28px, 0);
+          transform: skew(0.62deg);
+        }
+        65% {
+          clip: rect(81px, 9999px, 28px, 0);
+          transform: skew(0.1deg);
+        }
+        70% {
+          clip: rect(54px, 9999px, 93px, 0);
+          transform: skew(0.3deg);
+        }
+        75% {
+          clip: rect(22px, 9999px, 6px, 0);
+          transform: skew(0.84deg);
+        }
+        80% {
+          clip: rect(23px, 9999px, 5px, 0);
+          transform: skew(0.55deg);
+        }
+        85% {
+          clip: rect(24px, 9999px, 76px, 0);
+          transform: skew(0.68deg);
+        }
+        90% {
+          clip: rect(3px, 9999px, 29px, 0);
+          transform: skew(0.48deg);
+        }
+        95% {
+          clip: rect(43px, 9999px, 95px, 0);
+          transform: skew(0.37deg);
+        }
+        100% {
+          clip: rect(58px, 9999px, 66px, 0);
+          transform: skew(0.05deg);
+        }
+      }
+
+      @keyframes glitch-skew {
+        0% {
+          transform: skew(2deg);
+        }
+        10% {
+          transform: skew(4deg);
+        }
+        20% {
+          transform: skew(4deg);
+        }
+        30% {
+          transform: skew(-2deg);
+        }
+        40% {
+          transform: skew(4deg);
+        }
+        50% {
+          transform: skew(2deg);
+        }
+        60% {
+          transform: skew(-3deg);
+        }
+        70% {
+          transform: skew(-1deg);
+        }
+        80% {
+          transform: skew(-3deg);
+        }
+        90% {
+          transform: skew(-2deg);
+        }
+        100% {
+          transform: skew(-2deg);
+        }
+      }
+
+
+#loginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Adjust the height as needed */
+    flex-direction: column;
+    margin-top: -15vh; /* Adjust the vertical alignment */
+    max-width: 400px; /* Set a maximum width for the form */
+    width: 90%; /* Make the form responsive */
+	max-height:300px;
+	background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+	border-radius: 12px;
+}
+
+#loginForm label {
+    font-size: 18px;
+    margin-bottom: 5px; /* Reduce the margin below the labels */
+    text-align: left;
+    width: 100%;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    width: 100%; /* Make input fields occupy full width */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+#loginForm button {
+    background-color: #fff000;
+    border-radius: 12px;
+    color: #000;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px 20px; /* Adjust the padding for a shorter button */
+    text-align: center;
+    transition: 200ms;
+    width: auto; /* Allow the button to adjust its width based on content */
+    box-sizing: border-box;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+@media (max-width: 900px) {
+    .point-container {
+        display: none;
+    }
+
+    #changingText {
+        font-size: 150px;
+        margin-top: -300px;
+        margin-bottom: 250px;
+    }
+}
+
+
+</style>
+    <title>\\R3TR0//</title>
+</head>
+<body>
+
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+  <div class="background"></div>
+<div class="point-container" id="point-container"></div>
+<div class="star-container" id="star-container"></div>
+
+    <div id="wrapper">
+        <h1 class="glitch" id="changingText">RETRO</h1>
+    </div>
+
+<form id="loginForm" class="modal">
+    <div class="modal-content">
+        <p>xxxxxxxxxxxxxxxxxx</p>
+        <label for="username">L0GIN</label>
+        <input type="password" id="username" required>
+        <br>
+        <label for="password">PASS-W0RD</label>
+        <input type="password" id="password" required>
+        <br>
+        <button type="submit">C0NN3CTI0N</button>
+
+			<p>xxxxxxxxxxxxxxxxxx</p>
+
+    </div>
+</form>
+
+
+<!--XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX-->
+
+
+<script>
+    document.getElementById('point-container');
+    document.getElementById('star-container');
+    document.addEventListener('DOMContentLoaded', () => {
+  particlesJS('point-container', {
+    particles: {
+      number: { value: 200, density: { enable: true, value_area: 800 } },
+      color: { value: '#ffffff' },
+      shape: { type: 'triangle' },
+      opacity: { value: 1, random: false },
+      size: { value: 4, random: true },
+      line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+      move: {
+        enable: true,
+        speed: 2,
+        direction: 'none',
+        random: true,
+        straight: false,
+        out_mode: 'out',
+        bounce: false,
+        attract: { enable: true, rotateX: 3000, rotateY: 3000 },
+      },
+    },
+    interactivity: {
+      detect_on: 'window',
+      events: { onhover: { enable: true, mode: 'grab' }, onclick: { enable: true, mode: 'repulse' } },
+      modes: {
+        grab: { distance: 200, line_linked: { opacity: 1 } },
+        bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 },
+        repulse: { distance: 200 },
+        push: { particles_nb: 4 },
+        remove: { particles_nb: 2 },
+      },
+    },
+  });
+});
+
+const changingText = document.getElementById('changingText');
+const originalText = changingText.textContent;
+const characters = 'abcdefghijklmnopqrstuvwxyz0123456789@#$^&*-_ =+:.<>?';
+
+const targetText =  '$$$$$';
+const initialText = 'RETRO';
+
+function changeTextByLetter(index) {
+  if (index <= targetText.length) {
+    changingText.textContent = initialText.substring(0, index) + targetText.substring(index);
+    setTimeout(() => {
+      changeTextByLetter(index + 1);
+    }, 200);
+  } else {
+    setTimeout(() => {
+      startBlinkingAnimation();
+    }, 500);
+  }
+}
+
+changeTextByLetter(0);
+
+
+function randomCharacter() {
+  return characters[Math.floor(Math.random() * characters.length)];
+}
+
+function animateText() {
+  let newText = '';
+  for (let i = 0; i < originalText.length; i++) {
+    newText += Math.random() < 0.2 ? randomCharacter() : originalText[i];
+  }
+  changingText.textContent = newText;
+}
+
+let animationInterval;
+let blinkingIndex = 0;
+
+function startAnimation() {
+  animationInterval = setInterval(animateText, 200);
+  blinkingIndex = Math.floor(Math.random() * originalText.length);
+}
+
+function startBlinkingAnimation() {
+  clearInterval(animationInterval);
+  startAnimation();
+  setInterval(() => {
+    let textArray = changingText.textContent.split(' ');
+    textArray[blinkingIndex] = textArray[blinkingIndex] === ' ' ? '_' : ' ';
+    changingText.textContent = textArray.join('');
+  }, 200);
+}
+
+
+
+
+    document.getElementById("loginForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+
+        // Envoi de la requête au serveur Apache
+        fetch("/login", {
+            method: "POST",
+            body: JSON.stringify({ username: username, password: password }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+        .then(response => {
+            if (response.status === 200) {
+                return response.json();
+            } else {
+                throw new Error("Échec de la connexion.");
+            }
+        })
+        .then(data => {
+            // Redirection sécurisée vers la page de succès côté serveur
+            window.location.href = "/page_succes";
+        })
+        .catch(error => {
+            // Afficher une alerte si le mot de passe est incorrect
+            alert("Mot de passe incorrect");
+				document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        });
+    });
+
+
+
+</script>
+</body>
+</html>
